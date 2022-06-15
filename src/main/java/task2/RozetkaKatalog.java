@@ -22,7 +22,7 @@ public class RozetkaKatalog {
         String url = "https://www.google.com/";
         String query = "rozetka ua";
 
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(url);
@@ -39,5 +39,5 @@ public class RozetkaKatalog {
         element.click();
 
     }
-    
+
 }
