@@ -20,7 +20,7 @@ public class FoxtrotCart extends BaseTest {
 
 
     @Test(groups = {"Cart"})
-    public void addProductToCart() {
+    public void addProductToCartTest() {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(query);
         driver.findElement(submitButton).click();
@@ -36,7 +36,7 @@ public class FoxtrotCart extends BaseTest {
     }
 
     @Test(groups = {"Cart"})
-    public void deleteProductFromCart() {
+    public void deleteProductFromCartTest() {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(query);
         driver.findElement(submitButton).click();
@@ -45,6 +45,7 @@ public class FoxtrotCart extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(basketLink));
         driver.findElement(basketLink).click();
         driver.findElement(trashLink).click();
+        wait.until(ExpectedConditions.numberOfElementsToBeLessThan(cartProductList, 1));
         List<WebElement> element = driver.findElements(cartProductList);
         boolean actualCartProductListSize = element.isEmpty();
         boolean expectedCartProductListSize = true;

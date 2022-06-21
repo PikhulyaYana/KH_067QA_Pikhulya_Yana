@@ -18,7 +18,7 @@ public class FoxtrotInputField extends BaseTest {
     String notValidQuery = "отамоатмовамт";
 
     @Test(groups = {"Input Field"})
-    public void searchFieldValidData() {
+    public void searchFieldValidDataTest() {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(validQuery);
         driver.findElement(submitButton).click();
@@ -30,7 +30,7 @@ public class FoxtrotInputField extends BaseTest {
     }
 
     @Test(groups = {"Input Field"})
-    public void searchFieldNotValidData() {
+    public void searchFieldNotValidDataTest() {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(notValidQuery);
         driver.findElement(submitButton).click();
@@ -40,7 +40,7 @@ public class FoxtrotInputField extends BaseTest {
     }
 
     @Test(groups = {"Input Field"})
-    public void showDropDownMenuFromSearchField() {
+    public void showDropDownMenuFromSearchFieldTest() {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(validQuery);
         wait.until(ExpectedConditions.elementToBeClickable(searchDropDownMenu));
