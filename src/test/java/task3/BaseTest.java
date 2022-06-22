@@ -23,7 +23,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void SetUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver 2");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver2");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.get(url);
