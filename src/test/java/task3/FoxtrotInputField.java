@@ -13,6 +13,7 @@ public class FoxtrotInputField extends BaseTest {
     By submitButton = By.xpath("//input[@class='header-search__button evinent-search-button']");
     By searchResult = By.xpath("//div[contains(@class, 'sc-product')]");
     By searchDropDownMenu = By.xpath("//a[contains(@class, 'evinent-search-product')]");
+    By notFoundMessage = By.xpath("//div[@class='search-page__box-title']");
 
     String validQuery = "робот-пылесос";
     String notValidQuery = "отамоатмовамт";
@@ -34,8 +35,10 @@ public class FoxtrotInputField extends BaseTest {
         WebElement input = driver.findElement(inputField);
         input.sendKeys(notValidQuery);
         driver.findElement(submitButton).click();
-        boolean searchResultIsDisDisplayed = driver.findElement(searchResult).isDisplayed();
-        Assert.assertTrue(searchResultIsDisDisplayed);
+        wait.until(ExpectedConditions.presenceOfElementLocated(notFoundMessage));
+        boolean notFoundMessageIsDisplayed = driver.findElement(notFoundMessage).isDisplayed();
+        Assert.assertTrue(notFoundMessageIsDisplayed);
+
 
     }
 
@@ -50,3 +53,4 @@ public class FoxtrotInputField extends BaseTest {
 
     }
 }
+
